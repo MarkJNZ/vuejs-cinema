@@ -35,6 +35,7 @@ See the completed project here: [http://vuejs-cinema.vuejsdevelopers.com/](http:
 3. Install dependencies
 
     ```
+    modify dependency "node-sass" to use version "~4.12.0" as v4.9.0 is not supported by Node > v12.0    
     npm install
     ```
 
