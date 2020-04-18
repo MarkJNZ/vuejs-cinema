@@ -8,7 +8,6 @@
         category="time"
         v-bind:key="time"
         v-bind:title="time"
-        v-on:check-filter="checkFilter"
       ></check-filter>
     </div>
     <h3>By genre</h3>
@@ -18,7 +17,6 @@
         category="genre"
         v-bind:key="genre"
         v-bind:title="genre"
-        v-on:check-filter="checkFilter"
       ></check-filter>
     </div>
   </div>
@@ -35,11 +33,6 @@
         genres,
         times
       };
-    },
-    methods: {
-      checkFilter(category, title, checked) {
-        this.$emit("check-filter", category, title, checked);
-      }
     },
     components: {
       CheckFilter
