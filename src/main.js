@@ -26,6 +26,16 @@ Vue.use(VueRouter);
 import routes from "./util/routes";
 const router = new VueRouter({ routes });
 
+import { addClass, removeClass } from "./util/helpers";
+let mouseOverHander = function(event) {
+  let span = event.target.parentNode.getElementsByTagName("SPAN")[0];
+  addClass(span, "tooltip-show");
+};
+let mouseOutHander = function(event) {
+  let span = event.target.parentNode.getElementsByTagName("SPAN")[0];
+  removeClass(span, "tooltip-show");
+};
+
 new Vue({
   el: "#app",
   data: {
@@ -48,9 +58,22 @@ new Vue({
 
 Vue.directive("tooltip", {
   bind(el, bindings) {
-    let span = document.createElement('span');
-    let text = document.createTextNode('Seats avaialble: 200')
+    let span = document.createElement("span");
+    let text = document.createTextNode("Seats available: 200");
     span.appendChild(text);
+    addClass(span, "tooltip");
     el.appendChild(span);
+    let div = el.getElementsByTagName("DIV")[0];
+    div.addEventListener("mouseover", mouseOverHander);
+    div.addEventListener("mouseout", mouseOutHander);
+    div.addEventListener("touchstart", mouseOverHander);
+    div.addEventListener("touchend", mouseOutHander);
   },
+  unbind(el){
+    let div = el.getElementsByTagName("DIV")[0];
+    div.removeEventListener("mouseover", mouseOverHander);
+    div.removeEventListener("mouseout", mouseOutHander);
+    div.removeEventListener("touchstart", mouseOverHander);
+    div.removeEventListener("touchend", mouseOutHander);
+  }
 });
