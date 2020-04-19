@@ -11,6 +11,7 @@
             v-for="session in filteredSessions(movie.sessions)"
             v-bind:key="session.id"
             class="session-time-wrapper"
+            v-tooltip="{ seats: session.seats} "
           >
             <div class="session-time">
               {{ formatSessionTime(session.time) }}

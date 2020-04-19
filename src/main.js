@@ -45,3 +45,12 @@ new Vue({
   },
   router,
 });
+
+Vue.directive("tooltip", {
+  bind(el, bindings) {
+    let span = document.createElement('span');
+    let text = document.createTextNode('Seats avaialble: 200')
+    span.appendChild(text);
+    el.appendChild(span);
+  },
+});
