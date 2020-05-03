@@ -24,9 +24,11 @@
         </table>
       </div>
     </movie-item>
-    <div class="home">    <router-link
-          v-bind:to="{ name: 'home'}"
-        > Back to results</div>
+    <div class="home">    
+      <router-link
+        v-bind:to="{ name: 'home'}"
+      > Back to results
+    </div>
   </div>
 </template>
 
