@@ -1,6 +1,11 @@
 <template>
   <div id="overview">
     <day-select v-bind:selected="day"></day-select>
+    <div class="add">         
+      <router-link
+        v-bind:to="{ name: 'add'}"
+      > Add Movie
+    </div>
     <div class="main">
       <movie-list
         v-bind:genre="genre"
@@ -28,5 +33,19 @@
   };
 </script>
 
-<style>
+<style scoped>
+  .add {
+    margin: 1rem;
+    margin-left: 0;
+    padding: 1rem;
+    border-radius: 2px;
+    background-color: #6e6e6e;
+    display: inline-block;
+  }
+
+  .add a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+  }
 </style>
